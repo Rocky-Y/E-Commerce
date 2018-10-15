@@ -22,7 +22,6 @@ sheetname = dbname["products"]
 
 
 def index_page(page):
-
     # 抓取索引页
     print('正在爬取第', page, '页')
     try:
@@ -43,9 +42,7 @@ def index_page(page):
     except TimeoutException:
         index_page(page)
 
-
 def get_products():
-
     # 提取商品数据
     html = browser.page_source
     doc = pq(html)
@@ -64,7 +61,6 @@ def get_products():
 
 
 def save_to_mongo(result):
-
     # 保存至MongoDB
     try:
         if sheetname.insert(result):
